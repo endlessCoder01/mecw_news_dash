@@ -15,8 +15,8 @@ function App() {
     const fetchData = async () => {
       try {
         const [catRes, artRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/categories'),
-          axios.get('http://localhost:5000/api/articles')
+          axios.get('http://localhost:5000/mecw/api/categories'),
+          axios.get('http://localhost:5000/mecw/api/articles')
         ]);
         setCategories(catRes.data);
         setArticles(artRes.data);

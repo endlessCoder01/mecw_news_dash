@@ -1,5 +1,6 @@
 // MyArticles.js
 const MyArticles = ({ articles }) => {
+    console.log(articles);
     return (
       <div className="card shadow">
         <div className="card-body">

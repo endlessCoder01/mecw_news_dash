@@ -24,7 +24,7 @@ const PostNews = ({ categories }) => {
     data.append('image', formData.image);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/articles', data);
+      const res = await axios.post('http://localhost:5000/mecw/api/articles', data);
       alert('Article posted successfully!');
       setFormData({
         title: '',
@@ -68,12 +68,12 @@ const PostNews = ({ categories }) => {
               value={formData.content}
               onChange={(content) => setFormData({ ...formData, content })}
               className="mb-4"
-              style={{ height: '300px' }}
+              style={{ height: '270px' }}
             />
           </div>
 
           <div className="row mb-3">
-            <div className="col-md-6">
+            <div className="col-md-6"  style={{marginTop: 25}}>
               <label className="form-label">Category</label>
               <select
                 className="form-select"
@@ -89,7 +89,7 @@ const PostNews = ({ categories }) => {
             </div>
 
             <div className="col-md-6">
-              <label className="form-label">Author ID</label>
+              <label className="form-label"  style={{marginTop: 25}}>Author ID</label>
               <input
                 type="number"
                 className="form-control"
