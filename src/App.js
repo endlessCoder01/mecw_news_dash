@@ -57,7 +57,7 @@ function App() {
 }
 
 function Home() {
-  return <h2>Welcome to Journalist Dashboard</h2>;
+  return <h2 style={{textAlign: "center"}}>Welcome to the News Dashboard</h2>;
 }
 
 export default App;
