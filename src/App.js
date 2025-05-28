@@ -6,27 +6,12 @@ import PostNews from './components/PostNews'
 import MyArticles from './components/MyArticles'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import DashboardHome from './components/DashboardHome'
+import Adder from './components/Adder'
 
 function App () {
   const [categories, setCategories] = useState([])
   const [articles, setArticles] = useState([])
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const [catRes, artRes] = await Promise.all([
-  //         axios.get('http://localhost:5000/mecw/api/categories'),
-  //         axios.get('http://localhost:5000/mecw/api/articles')
-  //       ]);
-  //       setCategories(catRes.data);
-  //       setArticles(artRes.data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-  //   fetchData();
-
-  // }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,19 +61,25 @@ function App () {
       <div className='container mt-4'>
         <Routes>
           <Route path='/post' element={<PostNews categories={categories} />} />
+          <Route path='/add' element={<Adder/>} />
           <Route
             path='/articles'
             element={<MyArticles articles={articles} />}
           />
-          <Route path='/' element={<Home />} />
+          <Route
+            path='/'
+            element={
+              <DashboardHome articles={articles} categories={categories} />
+            }
+          />
         </Routes>
       </div>
     </Router>
   )
 }
 
-function Home () {
-  return <h2 style={{ textAlign: 'center' }}>Welcome to the News Dashboard</h2>
-}
+// function Home () {
+//   return <h2 style={{ textAlign: 'center' }}>Welcome to the News Dashboard</h2>
+// }
 
 export default App
